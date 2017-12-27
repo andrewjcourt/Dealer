@@ -1,6 +1,8 @@
 # deal-with-it
 Create &amp; shuffle a standard 52-card deck; deal &amp; display hands.
 
+*** Requires Unicode fonts to display suit characters ***
+
 To instantiate:
 
 from shuffler import *

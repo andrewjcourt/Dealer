@@ -1,4 +1,4 @@
-# shuffler
+# dealer
 # BUILD a standard 52-card deck (text representation) SHUFFLE it, DISPLAY it, and DEAL hands
 
 def build_deck():
@@ -22,6 +22,7 @@ def shuffle():
 def display(stack):
     for i in range(0, len(stack)):
         print stack[i],
+    return
 
 def deal(x, stack):
     hand = stack[0:x]

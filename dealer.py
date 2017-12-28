@@ -3,8 +3,7 @@
 
 def build_deck():
     face = ['2','3','4','5','6','7','8','9','10','J','Q','K','A']
-    suit = [u'\u2665'.encode('utf_8'), u'\u2666'.encode('utf_8'),
-            u'\u2663'.encode('utf_8'), u'\u2660'.encode('utf_8')]
+    suit = [u'\u2665'.encode('utf-8'), u'\u2666'.encode('utf-8'), u'\u2663'.encode('utf-8'), u'\u2660'.encode('utf-8')]
     deck = []
     deck = [str(f + s) for s in suit for f in face]
     return deck
@@ -21,7 +20,7 @@ def shuffle():
 
 def display(stack):
     for i in range(0, len(stack)):
-        print stack[i],
+        print(stack[i].decode('utf-8')),
     return
 
 def deal(x, stack):

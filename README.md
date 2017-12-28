@@ -7,7 +7,7 @@ Python.
 
 To instantiate:
 
-from shuffler import *
+from dealer import *
 
 deck = shuffle()
 

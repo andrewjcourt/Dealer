@@ -3,7 +3,7 @@ Create &amp; shuffle a standard 52-card deck; deal &amp; display hands.
 
 Python.
 
-*** Requires Unicode fonts to display suit characters ***
+*** Requires Unicode fonts to display suit icon characters: ♥ ♦ ♣ ♠ ***
 
 To instantiate:
 

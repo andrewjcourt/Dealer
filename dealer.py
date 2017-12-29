@@ -19,8 +19,7 @@ def shuffle():
     return stack
 
 def display(stack):
-    for i in range(0, len(stack)):
-        print(stack[i].decode('utf-8')),
+    for card in stack: print card.decode('utf-8'),
     return
 
 def deal(x, stack):
@@ -34,14 +33,24 @@ def deal(x, stack):
 
 # example: shuffle deck, display shuffled deck, and deal & display four hands of seven cards:
 
+print('Cards shuffled and dealt by *dealer.py* by Andrew Court'); print
+deck = build_deck()
+print('Build 52-card deck:')
+display(deck)
+print;print
 deck = shuffle()
+print('Shuffle deck:')
 display(deck)
 print; print
+print('Deal four 7-card hands:')
 for i in range(0, 4):
     hand = deal(7, deck)
     display(hand[0])
     print
     deck = hand[1]
+print
+print('Display undealt cards in stack:')
+display(deck)
 
 
 

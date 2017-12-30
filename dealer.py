@@ -27,6 +27,7 @@ def shuffle():
     '''
     Return a 'stack' of shuffled cards.
     deck = shuffle() returns shuffled deck by appending one randomly-chosen card for each of 52 iterations.
+    Calls build_deck().
     '''
     stack = [None] * 52
     deck = build_deck()
@@ -56,7 +57,7 @@ def deal(x, stack):
 def sort(hand, option=1):
     '''
     Sort cards by suit (and value within suit) or face value (and suit within value).
-    Option: 1 = sort by suit, 2 = sort by value.
+    Option: 1 = sort by suit (default), 2 = sort by value.
     hand = sort(hand, option) assigns sorted hand.
     display(sort(hand, option)) displays sorted hand without assignment.
     '''

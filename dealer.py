@@ -1,19 +1,18 @@
-#!/usr/bin/env python
+'''
+DEALER
+by Andrew Court
 
-''' |   DEALER by Andrew Court
-    |
-    |   Create a standard 52-card deck. Shuffle & deal cards. Sort by suit or face value.
-    |   Display cards with Unicode suit icons. '''
-
+Create a standard 52-card deck. Shuffle & deal cards. Sort by suit or face value.
+Display cards with Unicode suit icons.
+'''
 
 def build_deck():
-    
-    '''     |   Returns a list of playing-card identifiers where each card is
-            |   identifed by the tuple ((face value, suit value), (string)).
-            |   The (f, s) pair is required for sorting functions.
-            |
-            |   deck = build_deck() returns 52-card deck in standard order. '''
-    
+    '''
+    Return a list of 52 playing-card identifiers for display, dealing, sorting etc.
+    Each card is a tuple: ((face value, suit value), (string)).
+    The first tuple item [(f, s) pair] enables sorting functions.
+    deck = build_deck() returns a 52-card deck in standard order.
+    '''
     face = ['A','K','Q','J','10','9','8','7','6','5','4','3','2']
     suit = [u'\u2665'.encode('utf-8'), u'\u2666'.encode('utf-8'),
             u'\u2663'.encode('utf-8'), u'\u2660'.encode('utf-8')]
@@ -25,12 +24,10 @@ def build_deck():
     return deck
 
 def shuffle():
-
-    '''     |   Returns a 'stack' of shuffled cards by appending one randomly-chosen card
-            |   for each of 52 iterations.
-            |
-            |   deck = shuffle() returns shuffled deck of cards. '''
-    
+    '''
+    Return a 'stack' of shuffled cards.
+    deck = shuffle() returns shuffled deck by appending one randomly-chosen card for each of 52 iterations.
+    '''
     stack = [None] * 52
     deck = build_deck()
     import random
@@ -41,30 +38,28 @@ def shuffle():
     return stack
 
 def display(cards):
-
-    '''     |   Displays cards by decoding the string for each card identifier tuple. '''
-    
+    '''
+    Decode card identifier string to display cards with Unicode suit icons.
+    '''
     for card in cards: print(card[1].decode('utf-8')),
     return
 
 def deal(x, stack):
-
-    '''     |   Deals x number of cards from stack of cards.
-            |
-            |   hand = deal(x, stack) returns hand[0] (hand of x cards) and hand[1] (remaining cards in stack). '''
-
+    '''
+    Deal a hand of cards.
+    hand = deal(x, stack) returns hand[0] (hand of x cards) and hand[1] (remaining cards in stack).
+    '''
     hand = stack[0:x]
     stack = stack[x:]
     return hand, stack
 
-def sort(hand, option):
-
-    '''     |   Sorts cards by suit (and value within suit) or face value (and suit within value)
-            |
-            |   hand = sort(hand, option) [or display(sort(hand, option))]
-            |       - Assigns sorted hand [or displays sorted hand without assignment]
-            |       - Option: 1 = sort by suit, 2 = sort by value. '''
-
+def sort(hand, option=1):
+    '''
+    Sort cards by suit (and value within suit) or face value (and suit within value).
+    Option: 1 = sort by suit, 2 = sort by value.
+    hand = sort(hand, option) assigns sorted hand.
+    display(sort(hand, option)) displays sorted hand without assignment.
+    '''
     if option == 1:
         hand = sorted(hand)
         hand.sort(key=lambda x:x[0][1])

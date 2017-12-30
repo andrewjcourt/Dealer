@@ -69,21 +69,3 @@ def sort(hand, option=1):
         hand = sorted(hand)
         hand.reverse()
     return hand
-
-
-            
-
-
-
-
-
-
-
-
-   
-
-
-
-
-
-

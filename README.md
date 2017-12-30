@@ -1,5 +1,5 @@
-# deal-with-it
-Create &amp; shuffle a standard 52-card deck; deal &amp; display hands.
+# Dealer
+Create a standard 52-card deck. Shuffle & deal cards. Sort by suit or face value. Display cards with Unicode suit icons.
 
 Python.
 
@@ -9,14 +9,16 @@ To instantiate:
 
 from dealer import *
 
-deck = shuffle()
-
-display(deck)
+deck = shuffle(); display(deck)
 
 To deal a hand of 7 cards:
 
-hand = deal(7, deck)
+hand = deal(7, deck); display(hand[0])
 
-display(hand[0])
+Sort by suit:
 
-deck = hand[1] # remainder of shuffled deck
+hand = sort(hand, 1); display(hand)
+
+... or by face value:
+
+hand = sort(hand, 2)

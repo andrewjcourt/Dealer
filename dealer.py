@@ -1,14 +1,36 @@
-# dealer
-# BUILD a standard 52-card deck (text representation) SHUFFLE it, DISPLAY it, and DEAL hands
+#!/usr/bin/env python
+
+''' |   DEALER by Andrew Court
+    |
+    |   Create a standard 52-card deck. Shuffle & deal cards. Sort by suit or face value.
+    |   Display cards with Unicode suit icons. '''
+
 
 def build_deck():
-    face = ['2','3','4','5','6','7','8','9','10','J','Q','K','A']
-    suit = [u'\u2665'.encode('utf-8'), u'\u2666'.encode('utf-8'), u'\u2663'.encode('utf-8'), u'\u2660'.encode('utf-8')]
-    deck = []
-    deck = [str(f + s) for s in suit for f in face]
+    
+    '''     |   Returns a list of playing-card identifiers where each card is
+            |   identifed by the tuple ((face value, suit value), (string)).
+            |   The (f, s) pair is required for sorting functions.
+            |
+            |   deck = build_deck() returns 52-card deck in standard order. '''
+    
+    face = ['A','K','Q','J','10','9','8','7','6','5','4','3','2']
+    suit = [u'\u2665'.encode('utf-8'), u'\u2666'.encode('utf-8'),
+            u'\u2663'.encode('utf-8'), u'\u2660'.encode('utf-8')]
+    face_value = [13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+    suit_value = [4, 3, 2, 1]
+    cards = [str(f + s) for s in suit for f in face]
+    values = [(f, s) for s in suit_value for f in face_value]
+    deck = zip (values, cards)
     return deck
 
 def shuffle():
+
+    '''     |   Returns a 'stack' of shuffled cards by appending one randomly-chosen card
+            |   for each of 52 iterations.
+            |
+            |   deck = shuffle() returns shuffled deck of cards. '''
+    
     stack = [None] * 52
     deck = build_deck()
     import random
@@ -18,39 +40,44 @@ def shuffle():
         deck.pop(n)
     return stack
 
-def display(stack):
-    for card in stack: print card.decode('utf-8'),
+def display(cards):
+
+    '''     |   Displays cards by decoding the string for each card identifier tuple. '''
+    
+    for card in cards: print(card[1].decode('utf-8')),
     return
 
 def deal(x, stack):
+
+    '''     |   Deals x number of cards from stack of cards.
+            |
+            |   hand = deal(x, stack) returns hand[0] (hand of x cards) and hand[1] (remaining cards in stack). '''
+
     hand = stack[0:x]
     stack = stack[x:]
     return hand, stack
 
-# deck = shuffle()
-# display(deck) or display(shuffle())
-# hand = deal(x, deck) ... returns hand[0] (hand of x cards) and hand[1] (the remaining stack)
+def sort(hand, option):
 
-# example: shuffle deck, display shuffled deck, and deal & display four hands of seven cards:
+    '''     |   Sorts cards by suit (and value within suit) or face value (and suit within value)
+            |
+            |   hand = sort(hand, option) [or display(sort(hand, option))]
+            |       - Assigns sorted hand [or displays sorted hand without assignment]
+            |       - Option: 1 = sort by suit, 2 = sort by value. '''
 
-print('Cards shuffled and dealt by *dealer.py* by Andrew Court'); print
-deck = build_deck()
-print('Build 52-card deck:')
-display(deck)
-print;print
-deck = shuffle()
-print('Shuffle deck:')
-display(deck)
-print; print
-print('Deal four 7-card hands:')
-for i in range(0, 4):
-    hand = deal(7, deck)
-    display(hand[0])
-    print
-    deck = hand[1]
-print
-print('Display undealt cards in stack:')
-display(deck)
+    if option == 1:
+        hand = sorted(hand)
+        hand.sort(key=lambda x:x[0][1])
+        hand.reverse()
+    if option == 2:
+        hand = sorted(hand)
+        hand.reverse()
+    return hand
+
+
+            
+
+
 
 
 

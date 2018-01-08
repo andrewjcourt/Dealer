@@ -5,6 +5,8 @@ Python.
 
 *** Requires Unicode fonts to display suit icon characters: ♥ ♦ ♣ ♠ ***
 
+![dealer screenshot](https://user-images.githubusercontent.com/33779929/34659775-fe6dfc6e-f490-11e7-84d1-3035e015ea3d.jpg)
+
 ### MODULE FUNCTIONS
 
 ### build_deck():

@@ -40,4 +40,4 @@ display(sort(hand, option)) displays sorted hand without assignment.
 
 ### TKINTER GUI EXAMPLE COMING SOON
 
-![untitled](https://user-images.githubusercontent.com/33779929/34659827-81d12bd0-f491-11e7-83ba-ee2b02eae060.png)
+![untitled](https://user-images.githubusercontent.com/33779929/34697617-07171642-f528-11e7-8047-c01ddf74dd58.png)

@@ -5,7 +5,7 @@ Python.
 
 *** Requires Unicode fonts to display suit icon characters: ♥ ♦ ♣ ♠ ***
 
-Module functions:
+### Module functions:
 
 build_deck():
 

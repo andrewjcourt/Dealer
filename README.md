@@ -37,3 +37,7 @@ Sort cards by suit (and value within suit) or face value (and suit within value)
 Option: 1 = sort by suit (default), 2 = sort by value.
 hand = sort(hand, option) assigns sorted hand.
 display(sort(hand, option)) displays sorted hand without assignment.
+
+### TKINTER GUI EXAMPLE COMING SOON
+
+![untitled](https://user-images.githubusercontent.com/33779929/34659827-81d12bd0-f491-11e7-83ba-ee2b02eae060.png)

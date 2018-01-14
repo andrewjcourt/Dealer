@@ -38,6 +38,5 @@ Option: 1 = sort by suit (default), 2 = sort by value.
 hand = sort(hand, option) assigns sorted hand.
 display(sort(hand, option)) displays sorted hand without assignment.
 
-### TKINTER GUI EXAMPLE COMING SOON
+### TKINTER GUI EXAMPLE COMING SOON (GO FISH GAME)
 
-![untitled](https://user-images.githubusercontent.com/33779929/34697617-07171642-f528-11e7-8047-c01ddf74dd58.png)
